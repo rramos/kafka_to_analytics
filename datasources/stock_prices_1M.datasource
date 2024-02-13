@@ -1,0 +1,14 @@
+SCHEMA >
+    `symbol` String,
+    `date` Date,
+    `open` Float32,
+    `high` Float32,
+    `low` Float32,
+    `close` Float32,
+    `close_adjusted` Float32,
+    `volume` Int64,
+    `split_coefficient` Float32
+
+ENGINE MergeTree
+ENGINE_PARTITION_KEY toYear(date)
+ENGINE_SORTING_KEY date, symbol, volume
